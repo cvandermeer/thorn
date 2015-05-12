@@ -12,7 +12,10 @@
       <% if user_signed_in? %>
         <div class='avatar'>
           <%= image_tag(current_user.race.to_s + '.png') if user_signed_in? %>
+        </div>
+        <div class='playerinfo'>
           <p><%= current_user.name %></p>
+          <p>The <%= current_user.race %></p>
         </div>
       <% end %>
     </nav>
