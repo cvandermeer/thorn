@@ -9,6 +9,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
     <%= f.label :password %>
     <% if @validatable %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
@@ -22,11 +27,12 @@
   </div>
 
   <div class="field">
-    <%= f.label :class %>
-    <div class='avatar'>
-      <%= image_tag 'elf.png' %>
+    <%= f.label :race %>
+    <div class='race'>
+      <%= image_tag '1.png' %>
       <p>Elf</p>
     </div>
+    <%= f.radio_button(:race, 1) %>
   </div>
 
   <div class="actions">
