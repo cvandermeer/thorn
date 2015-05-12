@@ -14,7 +14,7 @@ $ ->
 
   $('.overlay').on 'click', ->
     $('.overlay').fadeOut()
-    $('.castle_info').fadeOut()
+    $('.castle _info').fadeOut()
 
 
 
