@@ -7,16 +7,18 @@
   <%= csrf_meta_tags %>
 </head>
   <body>
-    <h1>Thorn</h1>
+    <nav>
+      <h1>Thorn</h1>
+      <% if user_signed_in? %>
+        <div class='avatar'>
+          <%= image_tag(current_user.race.to_s + '.png') if user_signed_in? %>
+          <p><%= current_user.name %></p>
+        </div>
+      <% end %>
+    </nav>
+
     <p class='notice'><%= notice %></p>
     <p class='alert'><%= alert %></p>
-    
-    <% if user_signed_in? %>
-      <div class='avatar'>
-        <%= image_tag(current_user.race.to_s + '.png') if user_signed_in? %>
-        <p><%= current_user.name %></p>
-      </div>
-    <% end %>
 
     <%= yield %>
 
