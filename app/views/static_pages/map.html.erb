@@ -17,5 +17,15 @@
       <li><%= u.name %></li>
     <% end %>
   </ul>
-  <%= link_to 'Go to Town', static_pages_town_path %>
+  <%= link_to 'Go to the Town', static_pages_town_path %>
+</div>
+
+<div class='castle_info'>
+  <h2>Players in the Castle:</h2>
+  <ul>
+    <% User.all.where(position: 'Castle').each do |u| %>
+      <li><%= u.name %></li>
+    <% end %>
+  </ul>
+  <%= link_to 'Go to the Castle', static_pages_town_path %>
 </div>
