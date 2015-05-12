@@ -45,14 +45,15 @@
   padding-right:200px;
 }
 .avatar{
-  padding-right:20px;
+  margin-right:20px;
+  background-color:grey;
+  float:right;
+  border:12px solid brown;
+    border-style:groove;
   img{
     width:90px;
-    height:99px;
-    border:12px solid brown;
-    border-style:groove;
+    height:95px; 
   }
-  float:right;
 }
 h1{
   font-family:'BlackCastleMF';
