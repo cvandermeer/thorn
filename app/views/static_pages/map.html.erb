@@ -1,11 +1,21 @@
 <div class='map'>
   <%= image_tag 'map.png' %>
 
-  <%= link_to static_pages_castle_path do %>
+  <a href='#' >
     <div class='castle'></div>
-  <% end %>
+  </a>
 
-  <%= link_to static_pages_town_path do %>
+  <a href='#' >
     <div class='town'></div>
-  <% end %>
+  </a>
+</div>
+
+<div class='town_info'>
+  <h2>Players in Town:</h2>
+  <ul>
+    <% User.all.where(position: 'Town').each do |u| %>
+      <li><%= u.name %></li>
+    <% end %>
+  </ul>
+  <%= link_to 'Go to Town', static_pages_town_path %>
 </div>
