@@ -29,3 +29,23 @@
   </ul>
   <%= link_to 'Go to the Castle', static_pages_castle_path %>
 </div>
+
+<div class='travel_message'>Traveling to Castle arriving in <span id='travel_time'><%= '%.0f' % ((current_user.travel_time) - Time.now)%></span> seconds</div>
+
+<script type="text/javascript">
+  var ready;
+  ready = function() {
+
+    var travel_time = <%= '%.0f' % (current_user.travel_time- Time.now)%>
+    setInterval( function() {
+        travel_time--;
+        $('#travel_time').html(travel_time);
+        if (travel_time < 0) {
+            location.reload();
+        }    
+    }, 1000 );
+  };
+
+  $(document).ready(ready);
+  $(document).on('page:load', ready); 
+</script>
