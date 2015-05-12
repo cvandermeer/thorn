@@ -15,7 +15,9 @@
         </div>
         <div class='playerinfo'>
           <p><%= current_user.name %></p>
-          <p>The <%= current_user.race %></p>
+          <p>The level <%= current_user.level %> <%= current_user.race %></p>
+          <p><%= current_user.gold %> gold</p>
+          <p><%= link_to 'Map', static_pages_map_path %></p>
         </div>
       <% end %>
     </nav>

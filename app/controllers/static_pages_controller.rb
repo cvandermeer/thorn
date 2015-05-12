@@ -6,4 +6,10 @@ class StaticPagesController < ApplicationController
 
   def map
   end
+
+  def town
+  end
+
+  def castle
+  end
 end

@@ -6,4 +6,12 @@ class User < ActiveRecord::Base
   ### VALIDATIONS ###
   validates :name, presence: true
   validates :race, presence: true
+
+  ### CALLBACKS ###
+  before_save :default_values
+
+  def default_values
+    self.gold = 10
+    self.level = 1
+  end
 end
