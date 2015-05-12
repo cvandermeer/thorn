@@ -1,1 +1,9 @@
 <h2>Welcome to the castle</h2>
+
+<h3>Users at this location:</h3>
+
+<ul>
+  <% User.all.where(position: 'Castle').each do |u| %>
+    <li><%= u.name %></li>
+  <% end %>
+</ul>
