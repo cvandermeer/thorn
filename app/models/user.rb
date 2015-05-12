@@ -13,5 +13,6 @@ class User < ActiveRecord::Base
   def default_values
     self.gold = 10
     self.level = 1
+    self.position = 'Town'
   end
 end
