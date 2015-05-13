@@ -1,17 +1,13 @@
 class StaticPagesController < ApplicationController
   before_action :authenticate_user!, except: [:home]
-  before_action :travel_check, only: [:town, :castle, :travel]
+  before_action :travel_check, only: [:travel]
 
   def home
   end
 
   def map
-  end
-
-  def town
-  end
-
-  def castle
+    @town = Location.find(1)
+    @castle = Location.find(2)
   end
 
   def travel

@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get 'static_pages/map'
   get 'static_pages/castle'
   get 'static_pages/travel'
+  resources :locations, only: [:show]
 end

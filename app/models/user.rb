@@ -7,13 +7,16 @@ class User < ActiveRecord::Base
   validates :name, presence: true
   validates :race, presence: true
 
+  ### RELATIONS ###
+  belongs_to :location
+
   ### CALLBACKS ###
   before_create :default_values
 
   def default_values
     self.gold = 10
     self.level = 1
-    self.position = 'Town'
+    self.location_id = 1
     self.travel_time = Time.now
   end
 end

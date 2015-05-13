@@ -13,21 +13,21 @@
 <div class='town_info'>
   <h2>Players in Town:</h2>
   <ul>
-    <% User.all.where(position: 'Town').each do |u| %>
+    <% User.all.where(location: @town).each do |u| %>
       <li><%= u.name %></li>
     <% end %>
   </ul>
-  <%= link_to 'Go to the Town', static_pages_town_path %>
+  <%= link_to 'Go to the Town', @town %>
 </div>
 
 <div class='castle_info'>
   <h2>Players in the Castle:</h2>
   <ul>
-    <% User.all.where(position: 'Castle').each do |u| %>
+    <% User.all.where(location: @castle).each do |u| %>
       <li><%= u.name %></li>
     <% end %>
   </ul>
-  <%= link_to 'Go to the Castle', static_pages_castle_path %>
+  <%= link_to 'Go to the Castle', @castle %>
 </div>
 
 <% if current_user.travel_time > Time.now %>
