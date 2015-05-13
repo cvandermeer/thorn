@@ -8,11 +8,12 @@ class User < ActiveRecord::Base
   validates :race, presence: true
 
   ### CALLBACKS ###
-  before_save :default_values
+  before_create :default_values
 
   def default_values
     self.gold = 10
     self.level = 1
     self.position = 'Town'
+    self.travel_time = Time.now
   end
 end

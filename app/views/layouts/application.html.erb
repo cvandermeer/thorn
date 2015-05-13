@@ -21,6 +21,7 @@
           <p><%= current_user.gold %> gold</p>
           <p>Currently at: <%= current_user.position %></p>
           <p><%= link_to 'Map', static_pages_map_path %></p>
+          <%= link_to 'Uitloggen', destroy_user_session_path, class: 'navbar-brand', method: "delete" %>
         </div>
       <% end %>
     </nav>

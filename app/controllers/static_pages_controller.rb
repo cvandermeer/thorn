@@ -16,7 +16,7 @@ class StaticPagesController < ApplicationController
 
   def travel
     c = current_user
-    c.travel_time = Time.now + 1000
+    c.travel_time = Time.now + 30
     if c.save
       redirect_to static_pages_map_path
     end
