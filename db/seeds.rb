@@ -7,3 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 locations = Location.create([{name: 'Town', y_position: 10}, {name: 'Castle', y_position: 30}])
+User.create(name: 'Legolas Leafborn',
+            email: 'cvandermeer@live.nl', 
+            password: '123qweasd',
+            race: 'Elf')

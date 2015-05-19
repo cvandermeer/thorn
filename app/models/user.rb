@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
     self.gold = 10
     self.level = 1
     self.location_id = 1
+    self.target_location_id = 1
     self.travel_time = Time.now
   end
 end

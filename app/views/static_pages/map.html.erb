@@ -21,13 +21,8 @@
 </div>
 
 <div class='castle_info'>
-  <h2>Players in the Castle:</h2>
-  <ul>
-    <% User.all.where(location: @castle).each do |u| %>
-      <li><%= u.name %></li>
-    <% end %>
-  </ul>
-  <%= link_to 'Go to the Castle', @castle %>
+  <%= @castle.name %> is <%= (current_user.location.y_position - @castle.y_position).abs %> seconden away.
+  <%= link_to 'Travel', travel_path(@castle) %>
 </div>
 
 <% if current_user.travel_time > Time.now %>

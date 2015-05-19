@@ -15,6 +15,3 @@ $ ->
   $('.overlay').on 'click', ->
     $('.overlay').fadeOut()
     $('.castle_info').fadeOut()
-
-
-

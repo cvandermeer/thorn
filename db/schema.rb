@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 20150513115744) do
     t.integer  "level"
     t.integer  "gold"
     t.datetime "travel_time"
-    t.string   "target_position"
+    t.integer  "target_location_id"
     t.integer  "location_id"
   end
 

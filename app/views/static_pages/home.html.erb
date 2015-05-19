@@ -1,1 +1,10 @@
 <p>Welcome in the world of thorn</p>
+
+<% if !user_signed_in? %>
+  <p>
+    <%= link_to('Login', new_user_session_path)  %> 
+  </p>
+  <p>
+    <%= link_to('Register', new_user_registration_path)  %>
+  </p>
+<% end %>
