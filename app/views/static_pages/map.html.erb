@@ -2,11 +2,23 @@
   <%= image_tag 'map.png' %>
 
   <a href='#' >
-    <div class='castle'></div>
+    <div class='castle'>
+      <% if current_user.location == @castle %>
+        <div class='pawn'>
+          <%= image_tag(current_user.race.to_s + '.png') if user_signed_in? %>
+        </div>
+      <% end %>
+    </div>
   </a>
 
   <a href='#' >
-    <div class='town'></div>
+    <div class='town'>
+      <% if current_user.location == @town %>
+        <div class='pawn'>
+          <%= image_tag(current_user.race.to_s + '.png') if user_signed_in? %>
+        </div>
+      <% end %>
+    </div>
   </a>
 </div>
 
@@ -20,6 +32,8 @@
   <% if current_user.location != @town %>
     <%= @town.name %> is <%= (current_user.location.y_position - @town.y_position).abs %> seconden away.
     <%= link_to 'Travel', travel_path(@town) %>
+  <% else %>
+    <%= link_to 'Walk the streets', @castle %>
   <% end %>
 </div>
 
@@ -33,6 +47,8 @@
   <% if current_user.location != @castle %>
     <%= @castle.name %> is <%= (current_user.location.y_position - @castle.y_position).abs %> seconden away.
     <%= link_to 'Travel', travel_path(@castle) %>
+  <% else %>
+    <%= link_to 'Walk the streets', @castle %>
   <% end %>
 </div>
 
@@ -42,8 +58,8 @@
   <script type="text/javascript">
     var ready;
     ready = function() {
-
-      var travel_time = <%= '%.0f' % (current_user.travel_time- Time.now)%>
+      console.log(1)
+      var travel_time = <%= '%.0f' % (current_user.travel_time - Time.now) %>
       setInterval( function() {
           travel_time--;
           $('#travel_time').html(travel_time);
