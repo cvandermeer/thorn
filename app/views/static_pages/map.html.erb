@@ -17,16 +17,27 @@
       <li><%= u.name %></li>
     <% end %>
   </ul>
-  <%= link_to 'Go to the Town', @town %>
+  <% if current_user.location != @town %>
+    <%= @town.name %> is <%= (current_user.location.y_position - @town.y_position).abs %> seconden away.
+    <%= link_to 'Travel', travel_path(@town) %>
+  <% end %>
 </div>
 
 <div class='castle_info'>
-  <%= @castle.name %> is <%= (current_user.location.y_position - @castle.y_position).abs %> seconden away.
-  <%= link_to 'Travel', travel_path(@castle) %>
+  <h2>Players in Castle:</h2>
+  <ul>
+    <% User.all.where(location: @castle).each do |u| %>
+      <li><%= u.name %></li>
+    <% end %>
+  </ul>
+  <% if current_user.location != @castle %>
+    <%= @castle.name %> is <%= (current_user.location.y_position - @castle.y_position).abs %> seconden away.
+    <%= link_to 'Travel', travel_path(@castle) %>
+  <% end %>
 </div>
 
 <% if current_user.travel_time > Time.now %>
-  <div class='travel_message'>Traveling to Castle arriving in <span id='travel_time'><%= '%.0f' % ((current_user.travel_time) - Time.now)%></span> seconds</div>
+  <div class='travel_message'>Traveling to <%= Location.find(current_user.target_location_id).name %> arriving in <span id='travel_time'><%= '%.0f' % ((current_user.travel_time) - Time.now)%></span> seconds</div>
 
   <script type="text/javascript">
     var ready;

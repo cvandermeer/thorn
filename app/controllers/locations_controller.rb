@@ -8,10 +8,11 @@ class LocationsController < ApplicationController
 
   def travel
     c = current_user
-    c.target_location_id = Location.find(2).id
-    c.travel_time = Time.now + ((c.location.y_position - Location.find(2).y_position).abs)
-    c.save
-    redirect_to static_pages_map_path
+    c.target_location_id = @location.id
+    c.travel_time = Time.now + ((c.location.y_position - @location.y_position).abs)
+    if c.save
+      redirect_to static_pages_map_path
+    end
   end
 
   private
