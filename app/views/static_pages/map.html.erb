@@ -33,7 +33,7 @@
     <%= @town.name %> is <%= (current_user.location.y_position - @town.y_position).abs %> seconden away.
     <%= link_to 'Travel', travel_path(@town) %>
   <% else %>
-    <%= link_to 'Walk the streets', @castle %>
+    <%= link_to 'Walk the streets', @town %>
   <% end %>
 </div>
 

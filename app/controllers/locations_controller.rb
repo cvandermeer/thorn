@@ -1,6 +1,7 @@
 class LocationsController < ApplicationController
   before_action :set_location, only: [:show, :travel]
   before_action :travel_check, only: [:show, :travel]
+  before_action :arrival_check, only: [:show]
   before_action :authenticate_user!
 
   def show
@@ -23,6 +24,12 @@ class LocationsController < ApplicationController
     def travel_check
       if current_user.travel_time > Time.now
         redirect_to static_pages_map_path, notice: 'You are still traveling!'
+      end
+    end
+
+    def arrival_check
+      if current_user.location != @location
+        redirect_to static_pages_map_path, notice: 'You are not at this location!'
       end
     end
 end
